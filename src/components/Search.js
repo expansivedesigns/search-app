@@ -1,3 +1,4 @@
+//import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useState, useEffect  } from "react";
 import Results from "./Results";
@@ -10,8 +11,8 @@ export default function Search() {
 useEffect(() => {
       let fetchData = async() => {
         try {
-          const res = await fetch("http://jsonplaceholder.typicode.com/posts");  
-          //const res = await axios.get("/results");  //not working yet
+          const res = await fetch("https://jsonplaceholder.typicode.com/posts");  
+          //const res = await axios.get("/posts");  
           const data = await res.json(); 
 
           //console.log(data)       
