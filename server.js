@@ -3,10 +3,8 @@ const app = express();
 const axios = require("axios");
 const router = require("express").Router()
 const cors = require("cors");
-// const { Router } = require('express');
 
 const port = process.env.PORT || '3000';
-
 
 app.use(cors());
 
@@ -27,7 +25,7 @@ router.get("/", (req, res) => {
     res.render("results"); 
 }); 
 
-//app.use("/api", require('./api'));
+app.use("/results", require('./'));
 
 // Listen for HTTP requests on port 3000
 app.listen(port, () => {

@@ -1,11 +1,55 @@
 import React from 'react'
+import {useState} from 'react'
 
 export default function Result( {result} ) {
+  const [entries, setEntries] = useState("");
+
+
+const handleSubmit = e => {
+    setEntries(prev => prev.map(entry => {
+        return entry.id === result.id ? {...entry, id: result.id, title: result.title, body: result.body} : result;
+    }))
+}
+
+//todoForm
+const handleEdit = e => {  //sends input entered on form to be displays
+    const { name, value } = e.target;
+
+    setEntries(prev => ({ ...prev, [name] : value }));  
+}
   return (
     <div className="component-card">
-        <p name="userid" className="component-card-userid"><b>id:</b> {result.id}</p>
-        <p name="title" className="component-card-title"><b>title:</b> {result.title}</p>
-        <p name="body" className="component-card-body"><b>body:</b> {result.body}</p>
+      <form onSubmit={handleSubmit}>
+        <input 
+          type="text" 
+          name="id"
+          className="component-card-userid" 
+          value={result.id}
+          onChange={handleEdit}
+        />
+        <input
+          type="text"
+          name="title"
+          className="component-card-title"
+          value={result.title}
+          onChange={handleEdit}
+        />
+
+        
+        <input
+          type="text"
+          name="body"
+          className="component-card-body"
+          value={result.body}
+          onChange={handleEdit}
+        />
+
+        <button onChange={handleEdit}>
+            Edit            
+        </button>
+
+      </form>        
+    
     </div>
   )
 }
