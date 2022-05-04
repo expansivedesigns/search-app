@@ -6,7 +6,7 @@ export default function Result( {result} ) {
 
 const {username, email, password} = result;
 
-const handleSubmit = e => {
+const handleSubmit = id => {
     setEntries(prev => prev.map(entry => {
         return entry.id === result.id ? {...entry, id: result.id, title: result.title, body: result.body} : result;
     }))
