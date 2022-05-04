@@ -2,10 +2,11 @@ import React from 'react'
 import {useState} from 'react'
 
 export default function Result( {result} ) {
-  const [entries, setEntries] = useState("");
+  const [entries, setEntries] = useState({result});
 
 
 const handleSubmit = e => {
+    e.preventDefault();
     setEntries(prev => prev.map(entry => {
         return entry.id === result.id ? {...entry, id: result.id, title: result.title, body: result.body} : result;
     }))
@@ -13,6 +14,7 @@ const handleSubmit = e => {
 
 //todoForm
 const handleEdit = e => {  //sends input entered on form to be displays
+    
     const { name, value } = e.target;
 
     setEntries(prev => ({ ...prev, [name] : value }));  
@@ -43,11 +45,6 @@ const handleEdit = e => {  //sends input entered on form to be displays
           value={result.body}
           onChange={handleEdit}
         />
-
-        <button onChange={handleEdit}>
-            Edit            
-        </button>
-
       </form>        
     
     </div>
