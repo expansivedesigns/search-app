@@ -10,7 +10,7 @@ export default function Search() {
 useEffect(() => {
       let fetchData = async() => {
         try {
-          const res = await fetch("https://jsonplaceholder.typicode.com/posts");  
+          const res = await fetch("http://jsonplaceholder.typicode.com/posts");  
           //const res = await axios.get("/results");  
           const data = await res.json(); 
 

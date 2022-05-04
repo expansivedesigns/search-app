@@ -27,7 +27,7 @@ router.get("/", (req, res) => {
     res.render("results"); 
 }); 
 
-app.use("/api", require('./api'));
+//app.use("/api", require('./api'));
 
 // Listen for HTTP requests on port 3000
 app.listen(port, () => {
